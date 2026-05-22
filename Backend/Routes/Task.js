@@ -5,7 +5,7 @@ const { CreateTask, GetTasks, UpdateTask, DeleteTask } = require("../Controllers
 const { auth } = require("../Middlewares/Auth");
 
 // User Task Routes
-router.post("/", auth, CreateTask);
+router.post("/create", auth, CreateTask);
 router.get("/", auth, GetTasks);
 router.put("/:id", auth, UpdateTask);
 router.delete("/:id", auth, DeleteTask);
