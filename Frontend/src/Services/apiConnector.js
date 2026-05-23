@@ -4,13 +4,18 @@ import { logout } from "../Slices/authSlice";
 
 export const axiosInstance = axios.create({});
 
-// Intercept responses to handle account deactivation
+// Intercept responses to handle account deactivation for logged-in sessions only.
+// Login attempts for inactive users also return 403 — those are handled in AuthAPI.
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response && error.response.status === 403) {
+    if (error.response?.status === 403) {
       const message = error.response.data?.message || "";
-      if (message.toLowerCase().includes("deactivated")) {
+      const isDeactivated = message.toLowerCase().includes("deactivated");
+      const isLoginRequest = error.config?.url?.includes("/auth/login");
+      const { token } = store.getState().auth;
+
+      if (isDeactivated && token && !isLoginRequest) {
         store.dispatch(logout());
         window.location.href = "/login";
       }

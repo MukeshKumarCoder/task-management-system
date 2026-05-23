@@ -206,7 +206,7 @@ const UserManagement = () => {
                           onClick={() =>
                             handleToggleStatus(user._id, user.status)
                           }
-                          className={`w-11 h-6 rounded-full p-1 flex transition ${
+                          className={`w-11 h-6 rounded-full p-1 flex transition cursor-pointer ${
                             user.status === "Active"
                               ? "bg-indigo-600 justify-end"
                               : "bg-gray-300 dark:bg-[#30363D]"
@@ -233,7 +233,7 @@ const UserManagement = () => {
                     <td className="text-right px-6">
                       <button
                         onClick={() => handleDelete(user._id)}
-                        className="p-2 rounded-lg bg-rose-500/10 text-rose-500 hover:bg-rose-500 hover:text-white"
+                        className="p-2 rounded-lg bg-rose-500/10 cursor-pointer text-rose-500 hover:bg-rose-500 hover:text-white"
                       >
                         <FaTrashAlt />
                       </button>
@@ -290,14 +290,14 @@ const UserManagement = () => {
                 <div className="flex justify-between mt-5">
                   <button
                     onClick={() => handleToggleStatus(user._id, user.status)}
-                    className="px-4 py-2 rounded-xl bg-indigo-600 text-white text-sm"
+                    className="px-4 py-2 rounded-xl cursor-pointer bg-indigo-600 text-white text-sm"
                   >
                     Toggle
                   </button>
 
                   <button
                     onClick={() => handleDelete(user._id)}
-                    className="px-4 py-2 rounded-xl bg-rose-500 text-white text-sm"
+                    className="px-4 py-2 rounded-xl bg-rose-500 cursor-pointer text-white text-sm"
                   >
                     Delete
                   </button>

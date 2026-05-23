@@ -22,7 +22,7 @@ export const signUp = (name, email, password, role, status, navigate) => {
       }
 
       toast.success("Registration Successful! Please log in.");
-      navigate("/login");
+      navigate("/login", { state: { tab: "login" }, replace: true });
     } catch (error) {
       // console.error("SIGNUP API ERROR:", error);
       toast.error(error.response?.data?.message || "Could Not Sign Up. Please try again.");
@@ -50,8 +50,13 @@ export const login = (email, password, navigate) => {
       dispatch(setUser(response.data.user));
       navigate("/dashboard/tasks");
     } catch (error) {
-      // console.error("LOGIN API ERROR:", error);
-      toast.error(error.response?.data?.message || "Login Failed. Please try again.");
+      const message =
+        error.response?.data?.message || "Login Failed. Please try again.";
+
+      if (message.toLowerCase().includes("deactivated")) {
+        dispatch(logout());
+      }
+      toast.error(message);
     } finally {
       dispatch(setLoading(false));
     }

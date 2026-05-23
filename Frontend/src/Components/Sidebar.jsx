@@ -131,7 +131,7 @@ const Sidebar = () => {
                 navigate(item.path);
                 setIsMobileOpen(false);
               }}
-              className={`relative w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-medium transition-all group duration-300 ${
+              className={`relative w-full flex items-center cursor-pointer gap-4 px-4 py-3 rounded-xl text-sm font-medium transition-all group duration-300 ${
                 isActive
                   ? "text-indigo-600 dark:text-indigo-400 font-semibold"
                   : "text-slate-500 dark:text-slate-400 hover:text-slate-905 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/40"
@@ -171,7 +171,7 @@ const Sidebar = () => {
         {/* Theme Toggle Button */}
         <button
           onClick={() => dispatch(toggleTheme())}
-          className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+          className={`w-full flex items-center gap-4 px-4 py-3 cursor-pointer rounded-xl text-sm font-medium transition-all duration-300 ${
             theme === "dark"
               ? "text-amber-400 hover:bg-amber-500/10"
               : "text-indigo-600 hover:bg-indigo-500/10"
@@ -195,7 +195,7 @@ const Sidebar = () => {
         {/* Logout Button */}
         <button
           onClick={handleLogout}
-          className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-medium text-rose-500 hover:text-rose-600 hover:bg-rose-500/10 dark:hover:bg-rose-500/10 transition-all duration-300 ${
+          className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl text-sm font-medium text-rose-500 hover:text-rose-600 hover:bg-rose-500/10 dark:hover:bg-rose-500/10 transition-all duration-300 cursor-pointer ${
             isCollapsed ? "justify-center" : ""
           }`}
         >

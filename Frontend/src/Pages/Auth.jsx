@@ -31,6 +31,12 @@ const Auth = () => {
       setIsLogin(false);
     } else if (location.state?.tab === "login") {
       setIsLogin(true);
+      setFormData((prev) => ({
+        name: "",
+        email: prev.email,
+        password: "",
+        role: "User",
+      }));
     }
   }, [location.state]);
 
@@ -83,7 +89,7 @@ const Auth = () => {
                 setIsLogin(true);
                 setFormData((prev) => ({ ...prev, name: "" }));
               }}
-              className={`flex items-center justify-center gap-2 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
+              className={`flex items-center justify-center cursor-pointer gap-2 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
                 isLogin
                   ? "text-indigo-600 dark:text-indigo-400 font-bold"
                   : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
@@ -93,7 +99,7 @@ const Auth = () => {
             </button>
             <button
               onClick={() => setIsLogin(false)}
-              className={`flex items-center justify-center gap-2 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
+              className={`flex items-center justify-center cursor-pointer gap-2 py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
                 !isLogin
                   ? "text-indigo-600 dark:text-indigo-400 font-bold"
                   : "text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200"
@@ -196,7 +202,7 @@ const Auth = () => {
                     name="role"
                     value={formData.role}
                     onChange={handleChange}
-                    className="w-full pl-11 pr-4 py-3 bg-slate-50/50 dark:bg-slate-955/60 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:border-indigo-505 focus:ring-1 focus:ring-indigo-500 focus:outline-none transition-all hover:border-slate-300 dark:hover:border-slate-700 text-slate-700 dark:text-slate-300"
+                    className="w-full pl-11 pr-4 py-3 bg-slate-50/50 dark:bg-slate-955/60 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:border-indigo-505 focus:ring-1 focus:ring-indigo-500 focus:outline-none transition-all hover:border-slate-300 cursor-pointer dark:hover:border-slate-700 text-slate-700 dark:text-slate-300"
                   >
                     <option
                       value="User"
