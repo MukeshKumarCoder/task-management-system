@@ -34,13 +34,14 @@ Check out the live version here: <https://task-management-21.netlify.app/>
 ---
 
 ## Tech Stack
-- **Vanilla JavaScript (ES6+)** – Application logic and state management.
-- - **Node.js** 
+- **Vanilla JavaScript (ES6+)**
+- **Node.js** 
 - **Express.js**  
 - **React.js**  
 - **MongoDB**  
 - **Tailwind css**  
-- **Netlify** – Static site hosting and CI/CD.
+- **Netlify**
+- **Render**
 
 ---
 
