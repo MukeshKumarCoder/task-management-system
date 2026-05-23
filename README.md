@@ -34,9 +34,12 @@ Check out the live version here: <https://task-management-21.netlify.app/>
 ---
 
 ## Tech Stack
-- **HTML5** – Semantic structure.
-- **CSS3 (Flexbox & Grid)** – Layout and responsive design.
 - **Vanilla JavaScript (ES6+)** – Application logic and state management.
+- - **Node.js** 
+- **Express.js**  
+- **React.js**  
+- **MongoDB**  
+- **Tailwind css**  
 - **Netlify** – Static site hosting and CI/CD.
 
 ---
