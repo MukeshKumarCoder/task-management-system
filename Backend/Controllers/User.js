@@ -48,7 +48,7 @@ exports.signUp = async (req, res) => {
       user,
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return res.status(500).json({
       success: false,
       message: "User cannot be registered. Please try again",
@@ -124,7 +124,7 @@ exports.Login = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return res.status(500).json({
       success: false,
       message: "Login Failure, please try again",
