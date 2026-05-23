@@ -34,7 +34,7 @@ export const fetchUsers = (token) => {
 
       dispatch(setAdminUsers(response.data.users));
     } catch (error) {
-      console.error("ADMIN GET USERS ERROR:", error);
+      // console.error("ADMIN GET USERS ERROR:", error);
       toast.error(error.response?.data?.message || "Failed to fetch users.");
     } finally {
       dispatch(setLoading(false));
@@ -56,7 +56,7 @@ export const removeUser = (id, token) => {
       dispatch(deleteUserFromState(id));
       toast.success("User and all their tasks deleted!");
     } catch (error) {
-      console.error("ADMIN DELETE USER ERROR:", error);
+      // console.error("ADMIN DELETE USER ERROR:", error);
       toast.error(error.response?.data?.message || "Failed to delete user.");
     }
   };
@@ -81,7 +81,7 @@ export const toggleUserStatus = (id, status, token) => {
       dispatch(updateUserStatusInState({ id, status }));
       toast.success(`User is now ${status}!`);
     } catch (error) {
-      console.error("ADMIN UPDATE STATUS ERROR:", error);
+      // console.error("ADMIN UPDATE STATUS ERROR:", error);
       toast.error(error.response?.data?.message || "Failed to update user status.");
     }
   };
@@ -101,7 +101,7 @@ export const fetchAllTasks = (token) => {
 
       dispatch(setAdminTasks(response.data.tasks));
     } catch (error) {
-      console.error("ADMIN GET ALL TASKS ERROR:", error);
+      // console.error("ADMIN GET ALL TASKS ERROR:", error);
       toast.error(error.response?.data?.message || "Failed to fetch tasks.");
     } finally {
       dispatch(setLoading(false));
@@ -123,7 +123,7 @@ export const removeAdminTask = (id, token) => {
       dispatch(deleteAdminTaskFromState(id));
       toast.success("Task deleted by admin!");
     } catch (error) {
-      console.error("ADMIN DELETE TASK ERROR:", error);
+      // console.error("ADMIN DELETE TASK ERROR:", error);
       toast.error(error.response?.data?.message || "Failed to delete task.");
     }
   };
@@ -143,7 +143,7 @@ export const fetchActivityLogs = (token) => {
 
       dispatch(setActivityLogs(response.data.logs));
     } catch (error) {
-      console.error("ADMIN GET ACTIVITIES ERROR:", error);
+      // console.error("ADMIN GET ACTIVITIES ERROR:", error);
       toast.error(error.response?.data?.message || "Failed to fetch activity logs.");
     } finally {
       dispatch(setLoading(false));

@@ -9,10 +9,11 @@ exports.getAllUsers = async (req, res) => {
 
     return res.status(200).json({
       success: true,
+      message: "User's Data Got Successfully",
       users,
     });
   } catch (error) {
-    console.error("getAllUsers Error:", error);
+    // console.error("getAllUsers Error:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to fetch users",
@@ -21,7 +22,7 @@ exports.getAllUsers = async (req, res) => {
   }
 };
 
-// Delete user (and their tasks)
+// Delete user and their tasks
 exports.deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -46,7 +47,7 @@ exports.deleteUser = async (req, res) => {
       message: "User and all their tasks deleted successfully",
     });
   } catch (error) {
-    console.error("deleteUser Error:", error);
+    // console.error("deleteUser Error:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to delete user",
@@ -55,7 +56,7 @@ exports.deleteUser = async (req, res) => {
   }
 };
 
-// Update user status (Active/Inactive)
+// Update user's status Active/Inactive
 exports.updateUserStatus = async (req, res) => {
   try {
     const { id } = req.params;
@@ -68,6 +69,7 @@ exports.updateUserStatus = async (req, res) => {
       });
     }
 
+    // Find user
     const user = await User.findById(id);
     if (!user) {
       return res.status(404).json({
@@ -112,7 +114,7 @@ exports.getAllTasks = async (req, res) => {
       tasks,
     });
   } catch (error) {
-    console.error("getAllTasks Error:", error);
+    // console.error("getAllTasks Error:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to fetch all tasks",
@@ -130,10 +132,11 @@ exports.getActivityLogs = async (req, res) => {
 
     return res.status(200).json({
       success: true,
+      message: "Successfully fetched activity logs",
       logs,
     });
   } catch (error) {
-    console.error("getActivityLogs Error:", error);
+    // console.error("getActivityLogs Error:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to fetch activity logs",

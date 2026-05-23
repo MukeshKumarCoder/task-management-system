@@ -24,7 +24,7 @@ export const signUp = (name, email, password, role, status, navigate) => {
       toast.success("Registration Successful! Please log in.");
       navigate("/login");
     } catch (error) {
-      console.error("SIGNUP API ERROR:", error);
+      // console.error("SIGNUP API ERROR:", error);
       toast.error(error.response?.data?.message || "Could Not Sign Up. Please try again.");
     } finally {
       dispatch(setLoading(false));
@@ -50,7 +50,7 @@ export const login = (email, password, navigate) => {
       dispatch(setUser(response.data.user));
       navigate("/dashboard/tasks");
     } catch (error) {
-      console.error("LOGIN API ERROR:", error);
+      // console.error("LOGIN API ERROR:", error);
       toast.error(error.response?.data?.message || "Login Failed. Please try again.");
     } finally {
       dispatch(setLoading(false));

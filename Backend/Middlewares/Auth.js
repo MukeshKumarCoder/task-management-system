@@ -59,7 +59,7 @@ exports.auth = async (req, res, next) => {
 // Middleware to allow only Admins
 exports.isAdmin = async (req, res, next) => {
   try {
-    // Check role in database user details, fallback to decoded JWT token info
+    // Check role in database user details
     const role = req.userDetails?.role || req.user?.role || req.user?.accountType;
     
     if (role !== "Admin") {

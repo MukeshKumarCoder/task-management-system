@@ -30,7 +30,7 @@ exports.CreateTask = async (req, res) => {
       task,
     });
   } catch (error) {
-    console.error("CreateTask Error:", error);
+    // console.error("CreateTask Error:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to create Task",
@@ -39,7 +39,7 @@ exports.CreateTask = async (req, res) => {
   }
 };
 
-// Get Tasks (Regular user: own tasks only; Admin: all tasks)
+// Get Tasks Regular user own tasks only Admin all tasks
 exports.GetTasks = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -56,10 +56,11 @@ exports.GetTasks = async (req, res) => {
 
     return res.status(200).json({
       success: true,
+      message: "Successfully Fetched Tasks",
       tasks,
     });
   } catch (error) {
-    console.error("GetTasks Error:", error);
+    // console.error("GetTasks Error:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to retrieve Tasks",
@@ -107,7 +108,7 @@ exports.UpdateTask = async (req, res) => {
       task,
     });
   } catch (error) {
-    console.error("UpdateTask Error:", error);
+    // console.error("UpdateTask Error:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to update Task",
@@ -149,7 +150,7 @@ exports.DeleteTask = async (req, res) => {
       message: "Task deleted successfully",
     });
   } catch (error) {
-    console.error("DeleteTask Error:", error);
+    // console.error("DeleteTask Error:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to delete Task",

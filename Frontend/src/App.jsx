@@ -1,27 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 
 import PrivateRoute from "./Components/PrivateRoute";
 import AdminRoute from "./Components/AdminRoute";
 import DashboardLayout from "./Components/DashboardLayout";
 
+import Home from "./Pages/Home";
 import Auth from "./Pages/Auth";
 import TasksBoard from "./Pages/TasksBoard";
 import UserManagement from "./Pages/UserManagement";
 import TaskMonitoring from "./Pages/TaskMonitoring";
 import ActivityLogs from "./Pages/ActivityLogs";
+import Analytics from "./Pages/Analytics";
 
 const App = () => {
+  const { theme } = useSelector((state) => state.theme);
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
   return (
     <>
       <BrowserRouter>
         <Routes>
-          {/* Public Auth Route */}
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Auth />} />
-
-          {/* Protected Dashboard Layout and Sub-Routes */}
           <Route
             path="/dashboard"
             element={
@@ -30,10 +41,7 @@ const App = () => {
               </PrivateRoute>
             }
           >
-            {/* Common Route: My Tasks */}
             <Route path="tasks" element={<TasksBoard />} />
-
-            {/* Admin-only Routes */}
             <Route
               path="users"
               element={
@@ -58,18 +66,19 @@ const App = () => {
                 </AdminRoute>
               }
             />
-
-            {/* Fallback under dashboard */}
+            <Route
+              path="analytics"
+              element={
+                <AdminRoute>
+                  <Analytics />
+                </AdminRoute>
+              }
+            />
             <Route path="" element={<Navigate to="tasks" replace />} />
           </Route>
-
-          {/* Root paths redirect to tasks (which redirects to login if unauthenticated) */}
-          <Route path="/" element={<Navigate to="/dashboard/tasks" replace />} />
           <Route path="*" element={<Navigate to="/dashboard/tasks" replace />} />
         </Routes>
       </BrowserRouter>
-
-      {/* Modern Delightful Toast Alert Manager */}
       <ToastContainer
         position="top-right"
         autoClose={3500}
@@ -80,7 +89,7 @@ const App = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        theme={theme === "dark" ? "dark" : "light"}
       />
     </>
   );

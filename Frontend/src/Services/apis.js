@@ -10,8 +10,8 @@ export const authEndPoints = {
 export const taskEndPoints = {
   CREATE_TASK_API: BASE_URL + "/tasks/create",
   GET_TASKS_API: BASE_URL + "/tasks",
-  UPDATE_TASK_API: BASE_URL + "/tasks", // will append /:id dynamically
-  DELETE_TASK_API: BASE_URL + "/tasks", // will append /:id dynamically
+  UPDATE_TASK_API: BASE_URL + "/tasks",
+  DELETE_TASK_API: BASE_URL + "/tasks",
 };
 
 // Admin

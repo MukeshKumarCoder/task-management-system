@@ -11,7 +11,7 @@ exports.logActivity = async (userId, action) => {
       action,
       timeStamp: new Date(),
     });
-    console.log(`Activity Logged: User ${userId} performed '${action}'`);
+    // console.log(`Activity Logged: User ${userId} performed '${action}'`);
   } catch (error) {
     console.error("Failed to log activity:", error);
   }

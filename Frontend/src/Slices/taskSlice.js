@@ -6,7 +6,7 @@ const initialState = {
   adminUsers: [],
   adminTasks: [],
   activityLogs: [],
-  filterStatus: "All", // "All", "Pending", "Completed"
+  filterStatus: "All",
 };
 
 const taskSlice = createSlice({

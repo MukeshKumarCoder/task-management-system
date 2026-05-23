@@ -30,7 +30,7 @@ export const fetchUserTasks = (token) => {
 
       dispatch(setTasks(response.data.tasks));
     } catch (error) {
-      console.error("GET TASKS API ERROR:", error);
+      // console.error("GET TASKS API ERROR:", error);
       toast.error(error.response?.data?.message || "Failed to retrieve tasks.");
     } finally {
       dispatch(setLoading(false));
@@ -58,7 +58,7 @@ export const createTask = (title, description, status, token) => {
       toast.success("Task Created Successfully!");
       dispatch(addTask(response.data.task));
     } catch (error) {
-      console.error("CREATE TASK API ERROR:", error);
+      // console.error("CREATE TASK API ERROR:", error);
       toast.error(error.response?.data?.message || "Failed to create task.");
     } finally {
       dispatch(setLoading(false));
@@ -85,7 +85,7 @@ export const updateTask = (id, updatedFields, token) => {
       dispatch(updateTaskInState(response.data.task));
       toast.success("Task Updated!");
     } catch (error) {
-      console.error("UPDATE TASK API ERROR:", error);
+      // console.error("UPDATE TASK API ERROR:", error);
       toast.error(error.response?.data?.message || "Failed to update task.");
     }
   };
@@ -110,7 +110,7 @@ export const deleteTask = (id, token) => {
       dispatch(deleteTaskFromState(id));
       toast.success("Task Deleted!");
     } catch (error) {
-      console.error("DELETE TASK API ERROR:", error);
+      // console.error("DELETE TASK API ERROR:", error);
       toast.error(error.response?.data?.message || "Failed to delete task.");
     }
   };
